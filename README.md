@@ -17,14 +17,18 @@ Tài liệu đặc tả đầy đủ: [`docs/ArtChain_DeTai_BlockchainNC.docx`](
 | `design/` | Link Figma, ảnh chụp màn hình prototype | Mục 16.1 |
 | `slides/` | Slide thuyết trình, video demo | Mục 17, 18 |
 
-## Phân công (cập nhật theo nhóm)
+## Phân công (14 thành viên)
 
-| Thành viên | Phụ trách |
-|---|---|
-| Thành viên A | Phân tích, use case, Figma |
-| Thành viên B | Phân tích, frontend |
-| Thành viên C | Thiết kế & hiện thực smart contract |
-| Thành viên D | Thiết kế dữ liệu, backend, prototype |
+Chi tiết nhiệm vụ, lịch 12 tuần, phụ thuộc, cặp review và phân công thuyết trình: **[docs/PHAN_CONG.md](docs/PHAN_CONG.md)**
+
+| Nhóm | Thành viên | Thư mục |
+|---|---|---|
+| Điều phối | TV01 (trưởng nhóm), TV02 (tài liệu) | toàn repo, `docs/`, `slides/` |
+| Phân tích – Thiết kế | TV03, TV04, TV05 | `docs/diagrams/` |
+| Smart Contract | TV06 (trưởng nhóm), TV07, TV08 | `contracts/` |
+| Kiểm thử – Bảo mật | TV09, TV10 | `contracts/test/`, `contracts/scripts/` |
+| Backend | TV11, TV12 | `backend/` |
+| Giao diện | TV13 (Figma), TV14 (frontend) | `design/`, `frontend/` |
 
 ## Quy trình làm việc nhóm
 
@@ -40,13 +44,13 @@ Tài liệu đặc tả đầy đủ: [`docs/ArtChain_DeTai_BlockchainNC.docx`](
    ```
 3. **Tạo nhánh riêng cho mỗi phần việc** — không commit thẳng lên `main`
    ```bash
-   git checkout -b ten-thanh-vien/ten-phan-viec   # ví dụ: an/contract-registry
+   git checkout -b tvXX/ten-phan-viec   # ví dụ: tv06/contract-registry
    ```
 4. **Commit và push**
    ```bash
    git add .
    git commit -m "contracts: thêm ArtworkRegistry với commit-reveal"
-   git push -u origin ten-thanh-vien/ten-phan-viec
+   git push -u origin tvXX/ten-phan-viec
    ```
 5. **Mở Pull Request** trên GitHub vào `main`, nhờ ít nhất 1 người review rồi mới merge.
 

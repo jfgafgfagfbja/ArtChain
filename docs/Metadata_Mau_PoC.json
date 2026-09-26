@@ -1,0 +1,43 @@
+{
+  "name": "Hoàng Hôn Sài Gòn #001",
+  "description": "Tác phẩm tranh kỹ thuật số thể hiện cảnh hoàng hôn trên sông Sài Gòn, phong cách impressionism hiện đại. Sáng tác năm 2026.",
+  "image": "ipfs://QmExampleImageCID1234567890abcdef",
+  "external_url": "https://artchain.vn/artwork/1",
+  "attributes": [
+    {
+      "trait_type": "Nghệ sĩ",
+      "value": "Nguyễn Văn A"
+    },
+    {
+      "trait_type": "Thể loại",
+      "value": "Tranh kỹ thuật số"
+    },
+    {
+      "trait_type": "Phong cách",
+      "value": "Impressionism"
+    },
+    {
+      "trait_type": "Kích thước (px)",
+      "value": "4096 x 2160"
+    },
+    {
+      "trait_type": "Năm sáng tác",
+      "display_type": "number",
+      "value": 2026
+    },
+    {
+      "trait_type": "Phiên bản",
+      "value": "Bản gốc duy nhất (1/1)"
+    }
+  ],
+  "properties": {
+    "content_hash": "0x5f16f4c7f149ac4d6e5c3c8e2d7f3a1b9e0d4c6a8b2f7e1d3c5a9b0e4f2d8c6a",
+    "content_type": "image/png",
+    "file_size_bytes": 15728640,
+    "registered_on_chain": true,
+    "artwork_id": 1,
+    "registration_tx": "0x...",
+    "chain": "Ethereum Sepolia",
+    "contract_registry": "0x..."
+  }
+}

@@ -6,7 +6,8 @@
   "scripts": {
     "compile": "hardhat compile",
     "test": "hardhat test",
-    "demo:verify": "hardhat run scripts/demo-verify.js"
+    "demo:verify": "hardhat run scripts/demo-verify.js",
+    "demo:register": "hardhat run scripts/demo-register.js"
   },
   "devDependencies": {
     "@nomicfoundation/hardhat-toolbox": "^5.0.0",

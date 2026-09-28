@@ -81,6 +81,7 @@ contract ArtworkBlockchain {
         string metadataURI;
         bool exists;
         bool registered;
+        bool minted;
     }
 
     uint256 private nextArtworkId = 1;
@@ -122,7 +123,8 @@ contract ArtworkBlockchain {
             title: title,
             metadataURI: metadataURI,
             exists: true,
-            registered: false
+            registered: false,
+            minted: false
         });
 
         emit ArtworkCreated(
@@ -267,6 +269,14 @@ contract ArtworkBlockchain {
             "Only creator can mint NFT"
         );
 
+        /*
+            Mỗi Artwork chỉ được mint một NFT.
+        */
+        require(
+            !artworks[artworkId].minted,
+            "Artwork already minted"
+        );
+
         uint256 tokenId = nextTokenId;
 
         nextTokenId++;
@@ -276,6 +286,10 @@ contract ArtworkBlockchain {
         balances[msg.sender]++;
 
         tokenToArtwork[tokenId] = artworkId;
+
+        artworks[artworkId].minted = true;
+
+        statusOf[tokenId] = Status.Minted;
 
         emit NFTMinted(
             tokenId,
@@ -381,9 +395,9 @@ contract ArtworkBlockchain {
         if (listings[tokenId].active) {
 
             listings[tokenId].active = false;
-
-            statusOf[tokenId] = Status.Owned;
         }
+
+        statusOf[tokenId] = Status.Owned;
 
         emit OwnershipTransferred(
             tokenId,
@@ -661,6 +675,41 @@ contract ArtworkBlockchain {
     }
 
 
+    /*
+        Kiểm tra Owner của NFT (module Xác minh & Kiểm tra quyền).
+    */
+    function getOwner(
+        uint256 tokenId
+    )
+        public
+        view
+        returns (address)
+    {
+
+        return ownerOf(tokenId);
+    }
+
+
+    /*
+        Kiểm tra Status của NFT (module Xác minh & Kiểm tra quyền).
+    */
+    function getStatus(
+        uint256 tokenId
+    )
+        public
+        view
+        returns (Status)
+    {
+
+        require(
+            tokenOwners[tokenId] != address(0),
+            "NFT does not exist"
+        );
+
+        return statusOf[tokenId];
+    }
+
+
     // =========================================================
     // 8. VIEW FUNCTIONS
     // =========================================================
@@ -676,7 +725,8 @@ contract ArtworkBlockchain {
             string memory title,
             string memory metadataURI,
             bool exists,
-            bool registered
+            bool registered,
+            bool minted
         )
     {
 
@@ -689,7 +739,8 @@ contract ArtworkBlockchain {
             artwork.title,
             artwork.metadataURI,
             artwork.exists,
-            artwork.registered
+            artwork.registered,
+            artwork.minted
         );
     }
 
